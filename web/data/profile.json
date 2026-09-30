@@ -118,11 +118,19 @@
     },
     {
       "id": "a4",
-      "date": "2026-01-01",
+      "date": "2026-06-25",
       "title":       { "ja": "2026 Japan All AWS Certifications Engineers",
                        "en": "2026 Japan All AWS Certifications Engineers" },
       "description": { "ja": "AWS 全認定資格保有エンジニアとして選出。",
                        "en": "Selected as one of the All AWS Certifications Engineers in Japan for 2026." }
+    },
+    {
+      "id": "a5",
+      "date": "2026-09-30",
+      "title":       { "ja": "Panasonic Day 登壇",
+                       "en": "Speaker at Panasonic Day" },
+      "description": { "ja": "Kiroを使ったレガシーアプリのReact移行",
+                       "en": "Migrating a legacy application to React using Kiro." }
     }
   ],
   "portfolio": [

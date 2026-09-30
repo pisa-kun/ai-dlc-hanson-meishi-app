@@ -134,6 +134,14 @@
       "thumbnailPath": "/images/hobby/starbucks.jpg",
       "url": "",
       "tags": ["カフェ", "旅行"]
+    },
+    {
+      "id": "hp15",
+      "title":   { "ja": "ネイルケア", "en": "Nail Care" },
+      "summary": { "ja": "季節や気分に合わせてネイルを整え、指先のおしゃれを楽しんでいます。", "en": "I enjoy caring for my nails and choosing colors that match my mood and the season." },
+      "thumbnailPath": "/images/hobby/nailcare.jpg",
+      "url": "",
+      "tags": ["ファッション"]
     }
   ]
 }

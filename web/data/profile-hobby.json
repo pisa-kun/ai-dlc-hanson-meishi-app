@@ -1,0 +1,139 @@
+{
+  "basic": {
+    "name":    { "ja": "田中 将斗",                "en": "Masato Tanaka" },
+    "title":   { "ja": "本職プロデュース業の合間に仕事", "en": "Working between my real job: producing" },
+    "tagline": { "ja": "そろりそろりと生きてます", "en": "Living life slowly and steadily" },
+    "iconImagePath": "/images/hobby/icon.jpg"
+  },
+  "gallery": [
+    { "id": "h1", "path": "/images/hobby/main.jpg", "alt": { "ja": "プロフィール写真", "en": "Profile photo" }, "isDefaultMain": true }
+  ],
+  "skills": [
+    { "id": "hs1",  "name": "美容",           "category": "other" },
+    { "id": "hs2",  "name": "ちいかわ",       "category": "other" },
+    { "id": "hs3",  "name": "コーヒー巡り",   "category": "other" },
+    { "id": "hs4",  "name": "自作キーボード", "category": "tool" },
+    { "id": "hs5",  "name": "野球観戦",       "category": "other" },
+    { "id": "hs6",  "name": "オイスターバー", "category": "other" },
+    { "id": "hs7",  "name": "ライブ",         "category": "other" },
+    { "id": "hs8",  "name": "ぬいぐるみ活動", "category": "other" },
+    { "id": "hs9",  "name": "ラーメン",       "category": "other" },
+    { "id": "hs10", "name": "おさけ",         "category": "other" },
+    { "id": "hs11", "name": "外部イベント",   "category": "other" },
+    { "id": "hs12", "name": "指輪集め",       "category": "other" }
+  ],
+  "portfolio": [
+    {
+      "id": "hp1",
+      "title":   { "ja": "美容", "en": "Beauty" },
+      "summary": { "ja": "ピーリング行ったりします", "en": "I go for peeling treatments" },
+      "thumbnailPath": "/images/hobby/blackpiring.png",
+      "url": "",
+      "tags": ["美容"]
+    },
+    {
+      "id": "hp2",
+      "title":   { "ja": "ちいかわ", "en": "Chiikawa" },
+      "summary": { "ja": "カフェなどのイベントも行きます。好きなキャラは栗饅頭", "en": "I go to cafe events too. Favorite character is Kurimanjuu" },
+      "thumbnailPath": "/images/hobby/cikawa.jpg",
+      "url": "",
+      "tags": ["キャラクター"]
+    },
+    {
+      "id": "hp3",
+      "title":   { "ja": "コーヒー巡り", "en": "Coffee Tour" },
+      "summary": { "ja": "スタバ全国巡りしてます。画像は神戸の有名なところ", "en": "Touring Starbucks nationwide. Photo is from a famous spot in Kobe" },
+      "thumbnailPath": "/images/hobby/coffee.jpg",
+      "url": "",
+      "tags": ["カフェ", "旅行"]
+    },
+    {
+      "id": "hp4",
+      "title":   { "ja": "自作キーボード", "en": "Custom Keyboard" },
+      "summary": { "ja": "数年前はパーツを買って自作キーボード作ってました", "en": "A few years ago I was building custom keyboards from parts" },
+      "thumbnailPath": "/images/hobby/gamingpc.jpg",
+      "url": "",
+      "tags": ["ガジェット", "DIY"]
+    },
+    {
+      "id": "hp5",
+      "title":   { "ja": "野球観戦", "en": "Baseball" },
+      "summary": { "ja": "福岡出身なのでホークスファンです。唯一入っているファンクラブはなぜかジャイアンツです。写真は冬季キャンプです", "en": "Hawks fan from Fukuoka. The only fan club I'm in is somehow the Giants. Photo is from winter camp" },
+      "thumbnailPath": "/images/hobby/hwakscamp.jpg",
+      "url": "",
+      "tags": ["スポーツ"]
+    },
+    {
+      "id": "hp6",
+      "title":   { "ja": "オイスターバー", "en": "Oyster Bar" },
+      "summary": { "ja": "去年初めて牡蠣を食べてから色々食べてますが写真の時に初めて当たりました", "en": "Started eating oysters last year, got food poisoning for the first time in this photo" },
+      "thumbnailPath": "/images/hobby/kaki.jpg",
+      "url": "",
+      "tags": ["グルメ"]
+    },
+    {
+      "id": "hp7",
+      "title":   { "ja": "レッツユーザー", "en": "Let's Note User" },
+      "summary": { "ja": "賞与で買いました。springbootの本は結局ページもめくりませんでした", "en": "Bought with my bonus. Never even opened the Spring Boot book" },
+      "thumbnailPath": "/images/hobby/letsnote.jpg",
+      "url": "",
+      "tags": ["ガジェット"]
+    },
+    {
+      "id": "hp8",
+      "title":   { "ja": "ライブ", "en": "Live Concerts" },
+      "summary": { "ja": "オタクなのでライブにいきます。年休取るときはほぼライブ休暇です", "en": "I go to concerts as an otaku. Most of my PTO is for live events" },
+      "thumbnailPath": "/images/hobby/livekatu.jpg",
+      "url": "",
+      "tags": ["音楽", "ライブ"]
+    },
+    {
+      "id": "hp9",
+      "title":   { "ja": "ぬいぐるみ活動", "en": "Plushie Hunting" },
+      "summary": { "ja": "最近給料が結構ゲーセンに吸われています", "en": "My salary has been getting absorbed by arcades lately" },
+      "thumbnailPath": "/images/hobby/nuigurumi.jpg",
+      "url": "",
+      "tags": ["ゲーセン"]
+    },
+    {
+      "id": "hp10",
+      "title":   { "ja": "外部イベントや記事寄稿", "en": "External Events & Articles" },
+      "summary": { "ja": "去年アドベントカレンダーで当選して無印のクーポンもらいました", "en": "Won a MUJI coupon from an advent calendar last year" },
+      "thumbnailPath": "/images/hobby/qiita.jpg",
+      "url": "",
+      "tags": ["技術コミュニティ"]
+    },
+    {
+      "id": "hp11",
+      "title":   { "ja": "おさけ", "en": "Drinks" },
+      "summary": { "ja": "量は飲めませんが一人でふらふらいきます", "en": "Can't drink much but I wander around solo" },
+      "thumbnailPath": "/images/hobby/sake2.jpg",
+      "url": "",
+      "tags": ["グルメ"]
+    },
+    {
+      "id": "hp12",
+      "title":   { "ja": "ラーメン", "en": "Ramen" },
+      "summary": { "ja": "タンタンメンがすきです", "en": "I love tantanmen" },
+      "thumbnailPath": "/images/hobby/tantanmen.jpg",
+      "url": "",
+      "tags": ["グルメ"]
+    },
+    {
+      "id": "hp13",
+      "title":   { "ja": "指輪集め", "en": "Ring Collection" },
+      "summary": { "ja": "amazonで良く買いますが中々サイズがあいません", "en": "I often buy on Amazon but the sizes rarely fit" },
+      "thumbnailPath": "/images/hobby/ring.jpg",
+      "url": "",
+      "tags": ["ファッション"]
+    },
+    {
+      "id": "hp14",
+      "title":   { "ja": "スタバストアパスポート", "en": "Starbucks Store Passport" },
+      "summary": { "ja": "東北はコンプリートしました！", "en": "Completed all Tohoku stores!" },
+      "thumbnailPath": "/images/hobby/starbucks.jpg",
+      "url": "",
+      "tags": ["カフェ", "旅行"]
+    }
+  ]
+}

@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VERDE — ECサイト モックデザイン</title>
+    <style>
+        /* ===== カラーシステム ===== */
+        :root {
+            --primary: #7CFC00;
+            --primary-dark: #5BBB00;
+            --primary-light: #A8FF3E;
+            --secondary: #EAFDFF;
+            --secondary-dark: #C8F5FA;
+            --text-dark: #1A1A1A;
+            --text-mid: #555555;
+            --text-light: #888888;
+            --white: #FFFFFF;
+            --border: #D8F5D8;
+            --shadow: rgba(124, 252, 0, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+            background: var(--secondary);
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        /* ===== ナビゲーション ===== */
+        nav {
+            background: var(--white);
+            border-bottom: 3px solid var(--primary);
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--text-dark);
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: var(--primary-dark);
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .nav-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            cursor: pointer;
+            border: 1.5px solid var(--border);
+            position: relative;
+        }
+
+        .badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: var(--primary-dark);
+            color: var(--white);
+            font-size: 9px;
+            font-weight: 700;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== ページナビ ===== */
+        .page-nav {
+            display: flex;
+            gap: 8px;
+            padding: 12px 20px;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            overflow-x: auto;
+        }
+
+        .page-btn {
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1.5px solid var(--border);
+            background: var(--white);
+            font-size: 12px;
+            cursor: pointer;
+            white-space: nowrap;
+            color: var(--text-mid);
+            font-weight: 500;
+        }
+
+        .page-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        /* ===== コンテンツエリア ===== */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* ===== ヒーローバナー ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--secondary) 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: var(--text-dark);
+            color: var(--primary);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 4px 10px;
+            border-radius: 3px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            font-size: 13px;
+            color: var(--text-mid);
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background: var(--text-dark);
+            color: var(--primary);
+            border: none;
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        /* ===== カテゴリチップ ===== */
+        .category-row {
+            display: flex;
+            gap: 8px;
+            padding: 14px 20px;
+            overflow-x: auto;
+            background: var(--white);
+        }
+
+        .chip {
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1.5px solid var(--border);
+            background: var(--secondary);
+            font-size: 12px;
+            cursor: pointer;
+            white-space: nowrap;
+            color: var(--text-mid);
+        }
+
+        .chip.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        /* ===== 検索バー ===== */
+        .search-bar {
+            padding: 12px 20px;
+            background: var(--white);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 16px 10px 36px;
+            border: 1.5px solid var(--border);
+            border-radius: 24px;
+            font-size: 13px;
+            background: var(--secondary);
+            outline: none;
+            position: relative;
+        }
+
+        .search-wrap {
+            position: relative;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* ===== セクションヘッダー ===== */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px 8px;
+        }
+
+        .section-title {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .section-link {
+            font-size: 12px;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        /* ===== 商品グリッド ===== */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            padding: 0 20px 20px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .product-img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            position: relative;
+        }
+
+        .product-img.c1 {
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+        }
+
+        .product-img.c2 {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+        }
+
+        .product-img.c3 {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+        }
+
+        .product-img.c4 {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+        }
+
+        .product-img.c5 {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+        }
+
+        .product-img.c6 {
+            background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+        }
+
+        .new-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: var(--primary);
+            color: var(--text-dark);
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 3px;
+        }
+
+        .sale-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: #FF5252;
+            color: white;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 3px;
+        }
+
+        .fav-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 28px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            cursor: pointer;
+            border: 1px solid var(--border);
+        }
+
+        .product-info {
+            padding: 10px 12px 12px;
+        }
+
+        .product-brand {
+            font-size: 10px;
+            color: var(--text-light);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .product-name {
+            font-size: 13px;
+            font-weight: 600;
+            margin: 2px 0 6px;
+            line-height: 1.3;
+        }
+
+        .product-price {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .product-price-old {
+            font-size: 11px;
+            color: var(--text-light);
+            text-decoration: line-through;
+            margin-left: 4px;
+        }
+
+        .color-dots {
+            display: flex;
+            gap: 4px;
+            margin-top: 6px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ナビゲーション -->
+    <nav>
+        <div class="logo">VER<span>DE</span></div>
+        <div class="nav-icons">
+            <div class="nav-icon">🔍</div>
+            <div class="nav-icon">🛒<span class="badge">2</span></div>
+            <div class="nav-icon">👤</div>
+        </div>
+    </nav>
+
+    <!-- ページ切り替えナビ -->
+    <div class="page-nav">
+        <button class="page-btn active" onclick="showPage('home', this)">🏠 ホーム</button>
+        <button class="page-btn" onclick="showPage('detail', this)">👗 商品詳細</button>
+        <button class="page-btn" onclick="showPage('cart', this)">🛒 カート</button>
+        <button class="page-btn" onclick="showPage('checkout', this)">💳 決済</button>
+        <button class="page-btn" onclick="showPage('complete', this)">✅ 注文完了</button>
+        <button class="page-btn" onclick="showPage('login', this)">🔑 ログイン</button>
+        <button class="page-btn" onclick="showPage('mypage', this)">👤 マイページ</button>
+    </div>
+
+    <!-- ===== ホームページ ===== -->
+    <div id="page-home" class="page active">
+
+        <!-- ヒーローバナー -->
+        <div class="hero">
+            <div class="hero-tag">NEW ARRIVAL 2026 SS</div>
+            <h1>着る、感じる、<br>あなたらしさ。</h1>
+            <p>今季のトレンドアイテムが続々入荷</p>
+            <button class="btn-primary">コレクションを見る →</button>
+        </div>
+
+        <!-- 検索バー -->
+        <div class="search-bar">
+            <div class="search-wrap">
+                <span class="search-icon">🔍</span>
+                <input class="search-input" type="text" placeholder="商品を検索...">
+            </div>
+        </div>
+
+        <!-- カテゴリチップ -->
+        <div class="category-row">
+            <div class="chip active">すべて</div>
+            <div class="chip">トップス</div>
+            <div class="chip">ボトムス</div>
+            <div class="chip">アウター</div>
+            <div class="chip">ワンピース</div>
+            <div class="chip">アクセサリー</div>
+        </div>
+
+        <!-- 新着商品 -->
+        <div class="section-header">
+            <span class="section-title">新着アイテム</span>
+            <span class="section-link">すべて見る ›</span>
+        </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img c1">
+                    <span>👗</span>
+                    <span class="new-badge">NEW</span>
+                    <span class="fav-btn">🤍</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">VERDE</div>
+                    <div class="product-name">リネンブレンド<br>フレアワンピース</div>
+                    <div>
+                        <span class="product-price">¥12,800</span>
+                    </div>
+                    <div class="color-dots">
+                        <div class="dot" style="background:#f5f5f5"></div>
+                        <div class="dot" style="background:#7CFC00"></div>
+                        <div class="dot" style="background:#1a1a1a"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img c2">
+                    <span>👕</span>
+                    <span class="sale-badge">SALE</span>
+                    <span class="fav-btn">❤️</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">VERDE</div>
+                    <div class="product-name">オーバーサイズ<br>コットンTシャツ</div>
+                    <div>
+                        <span class="product-price">¥4,200</span>
+                        <span class="product-price-old">¥6,800</span>
+                    </div>
+                    <div class="color-dots">
+                        <div class="dot" style="background:#EAFDFF"></div>
+                        <div class="dot" style="background:#ffccbc"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img c3">
+                    <span>👖</span>
+                    <span class="new-badge">NEW</span>
+                    <span class="fav-btn">🤍</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">VERDE</div>
+                    <div class="product-name">ハイウエスト<br>テーパードパンツ</div>
+                    <div>
+                        <span class="product-price">¥9,500</span>
+                    </div>
+                    <div class="color-dots">
+                        <div class="dot" style="background:#795548"></div>
+                        <div class="dot" style="background:#1a1a1a"></div>
+                        <div class="dot" style="background:#e0e0e0"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img c4">
+                    <span>🧥</span>
+                    <span class="fav-btn">🤍</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">VERDE</div>
+                    <div class="product-name">ライトウェイト<br>スプリングコート</div>
+                    <div>
+                        <span class="product-price">¥24,800</span>
+                    </div>
+                    <div class="color-dots">
+                        <div class="dot" style="background:#f5f5f5"></div>
+                        <div class="dot" style="background:#bcaaa4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- おすすめ -->
+        <div class="section-header">
+            <span class="section-title">おすすめアイテム</span>
+            <span class="section-link">すべて見る ›</span>
+        </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img c5">
+                    <span>👗</span>
+                    <span class="fav-btn">🤍</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">VERDE</div>
+                    <div class="product-name">シアーフラワー<br>ブラウス</div>
+                    <div><span class="product-price">¥7,800</span></div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img c6">
+                    <span>👜</span>
+                    <span class="fav-btn">🤍</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">VERDE</div>
+                    <div class="product-name">ミニショルダー<br>バッグ</div>
+                    <div><span class="product-price">¥15,400</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 商品詳細ページ ===== -->
+    <div id="page-detail" class="page">
+        <style>
+            .img-gallery {
+                background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+                height: 320px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 80px;
+                position: relative;
+            }
+
+            .img-dots {
+                display: flex;
+                gap: 6px;
+                justify-content: center;
+                padding: 10px;
+            }
+
+            .img-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: var(--border);
+            }
+
+            .img-dot.active {
+                background: var(--primary-dark);
+                width: 20px;
+                border-radius: 4px;
+            }
+
+            .detail-body {
+                padding: 16px 20px;
+                background: var(--white);
+            }
+
+            .detail-brand {
+                font-size: 11px;
+                color: var(--text-light);
+                font-weight: 700;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+            }
+
+            .detail-name {
+                font-size: 20px;
+                font-weight: 800;
+                margin: 4px 0 8px;
+            }
+
+            .detail-price {
+                font-size: 22px;
+                font-weight: 700;
+            }
+
+            .detail-price-tax {
+                font-size: 11px;
+                color: var(--text-light);
+                margin-left: 4px;
+            }
+
+            .divider {
+                height: 1px;
+                background: var(--border);
+                margin: 14px 0;
+            }
+
+            .option-label {
+                font-size: 12px;
+                font-weight: 700;
+                color: var(--text-mid);
+                margin-bottom: 8px;
+            }
+
+            .size-row {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+
+            .size-btn {
+                width: 44px;
+                height: 44px;
+                border-radius: 6px;
+                border: 1.5px solid var(--border);
+                background: var(--secondary);
+                font-size: 12px;
+                font-weight: 600;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .size-btn.active {
+                border-color: var(--primary-dark);
+                background: var(--primary);
+                font-weight: 700;
+            }
+
+            .size-btn.sold {
+                color: var(--text-light);
+                text-decoration: line-through;
+                background: #f5f5f5;
+            }
+
+            .color-row {
+                display: flex;
+                gap: 10px;
+            }
+
+            .color-swatch {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                cursor: pointer;
+                border: 2px solid transparent;
+            }
+
+            .color-swatch.active {
+                border-color: var(--text-dark);
+            }
+
+            .detail-desc {
+                font-size: 13px;
+                color: var(--text-mid);
+                line-height: 1.7;
+            }
+
+            .add-cart-btn {
+                width: 100%;
+                padding: 16px;
+                background: var(--primary);
+                border: none;
+                border-radius: 8px;
+                font-size: 15px;
+                font-weight: 700;
+                cursor: pointer;
+                margin-top: 16px;
+                letter-spacing: 1px;
+            }
+
+            .add-cart-btn:hover {
+                background: var(--primary-dark);
+            }
+
+            .sticky-bottom {
+                position: sticky;
+                bottom: 0;
+                background: var(--white);
+                padding: 12px 20px;
+                border-top: 1px solid var(--border);
+                box-shadow: 0 -4px 12px var(--shadow);
+            }
+        </style>
+        <div class="img-gallery">
+            <span>👗</span>
+            <span class="new-badge">NEW</span>
+        </div>
+        <div class="img-dots">
+            <div class="img-dot active"></div>
+            <div class="img-dot"></div>
+            <div class="img-dot"></div>
+            <div class="img-dot"></div>
+        </div>
+        <div class="detail-body">
+            <div class="detail-brand">VERDE</div>
+            <div class="detail-name">リネンブレンド フレアワンピース</div>
+            <div>
+                <span class="detail-price">¥12,800</span>
+                <span class="detail-price-tax">（税込）</span>
+            </div>
+            <div class="divider"></div>
+            <div class="option-label">サイズを選択</div>
+            <div class="size-row">
+                <div class="size-btn sold">XS</div>
+                <div class="size-btn">S</div>
+                <div class="size-btn active">M</div>
+                <div class="size-btn">L</div>
+                <div class="size-btn">XL</div>
+            </div>
+            <div class="divider"></div>
+            <div class="option-label">カラーを選択</div>
+            <div class="color-row">
+                <div class="color-swatch active" style="background:#f5f5f5; border-color:#1a1a1a;"></div>
+                <div class="color-swatch" style="background:#7CFC00;"></div>
+                <div class="color-swatch" style="background:#1a1a1a;"></div>
+            </div>
+            <div class="divider"></div>
+            <div class="option-label">商品説明</div>
+            <div class="detail-desc">
+                上質なリネン混素材を使用したフレアシルエットのワンピース。
+                ナチュラルな風合いと軽やかな着心地が特徴です。
+                オフィスからカジュアルまで幅広いシーンに対応します。
+            </div>
+        </div>
+        <div class="sticky-bottom">
+            <button class="add-cart-btn">🛒 カートに追加</button>
+        </div>
+    </div>
+
+    <!-- ===== カートページ ===== -->
+    <div id="page-cart" class="page">
+        <style>
+            .cart-header {
+                padding: 16px 20px;
+                font-size: 17px;
+                font-weight: 800;
+                background: var(--white);
+                border-bottom: 1px solid var(--border);
+            }
+
+            .cart-item {
+                display: flex;
+                gap: 12px;
+                padding: 14px 20px;
+                background: var(--white);
+                border-bottom: 1px solid var(--border);
+            }
+
+            .cart-thumb {
+                width: 72px;
+                height: 90px;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 28px;
+                flex-shrink: 0;
+            }
+
+            .cart-thumb.c1 {
+                background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            }
+
+            .cart-thumb.c2 {
+                background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            }
+
+            .cart-info {
+                flex: 1;
+            }
+
+            .cart-brand {
+                font-size: 10px;
+                color: var(--text-light);
+                font-weight: 700;
+                letter-spacing: 1px;
+            }
+
+            .cart-name {
+                font-size: 13px;
+                font-weight: 600;
+                margin: 2px 0 4px;
+            }
+
+            .cart-variant {
+                font-size: 11px;
+                color: var(--text-mid);
+            }
+
+            .cart-price-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 8px;
+            }
+
+            .cart-price {
+                font-size: 15px;
+                font-weight: 700;
+            }
+
+            .qty-ctrl {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .qty-btn {
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                border: 1.5px solid var(--border);
+                background: var(--secondary);
+                font-size: 16px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+            }
+
+            .qty-num {
+                font-size: 14px;
+                font-weight: 700;
+                min-width: 16px;
+                text-align: center;
+            }
+
+            .cart-summary {
+                background: var(--white);
+                margin: 12px 20px;
+                border-radius: 10px;
+                padding: 16px;
+                border: 1px solid var(--border);
+            }
+
+            .summary-row {
+                display: flex;
+                justify-content: space-between;
+                padding: 6px 0;
+                font-size: 13px;
+                color: var(--text-mid);
+            }
+
+            .summary-row.total {
+                font-size: 16px;
+                font-weight: 800;
+                color: var(--text-dark);
+                border-top: 1px solid var(--border);
+                margin-top: 6px;
+                padding-top: 12px;
+            }
+
+            .checkout-btn {
+                display: block;
+                width: calc(100% - 40px);
+                margin: 0 20px 20px;
+                padding: 16px;
+                background: var(--primary);
+                border: none;
+                border-radius: 8px;
+                font-size: 15px;
+                font-weight: 700;
+                cursor: pointer;
+                text-align: center;
+            }
+        </style>
+        <div class="cart-header">ショッピングカート（2点）</div>
+        <div class="cart-item">
+            <div class="cart-thumb c1">👗</div>
+            <div class="cart-info">
+                <div class="cart-brand">VERDE</div>
+                <div class="cart-name">リネンブレンド フレアワンピース</div>
+                <div class="cart-variant">サイズ: M ／ カラー: ホワイト</div>
+                <div class="cart-price-row">
+                    <span class="cart-price">¥12,800</span>
+                    <div class="qty-ctrl">
+                        <div class="qty-btn">−</div>
+                        <span class="qty-num">1</span>
+                        <div class="qty-btn">＋</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-item">
+            <div class="cart-thumb c2">👕</div>
+            <div class="cart-info">
+                <div class="cart-brand">VERDE</div>
+                <div class="cart-name">オーバーサイズ コットンTシャツ</div>
+                <div class="cart-variant">サイズ: S ／ カラー: ライトブルー</div>
+                <div class="cart-price-row">
+                    <span class="cart-price">¥4,200</span>
+                    <div class="qty-ctrl">
+                        <div class="qty-btn">−</div>
+                        <span class="qty-num">2</span>
+                        <div class="qty-btn">＋</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <div class="summary-row"><span>小計</span><span>¥21,200</span></div>
+            <div class="summary-row"><span>送料</span><span>¥550</span></div>
+            <div class="summary-row total"><span>合計（税込）</span><span>¥21,750</span></div>
+        </div>
+        <button class="checkout-btn">購入手続きへ →</button>
+    </div>
+
+    <!-- ===== 決済ページ ===== -->
+    <div id="page-checkout" class="page">
+        <style>
+            .checkout-section {
+                background: var(--white);
+                margin: 12px 20px;
+                border-radius: 10px;
+                padding: 16px;
+                border: 1px solid var(--border);
+            }
+
+            .checkout-section-title {
+                font-size: 13px;
+                font-weight: 700;
+                margin-bottom: 12px;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+
+            .address-card {
+                background: var(--secondary);
+                border-radius: 8px;
+                padding: 12px;
+                border: 1.5px solid var(--primary);
+                font-size: 13px;
+                line-height: 1.7;
+            }
+
+            .address-change {
+                font-size: 12px;
+                color: var(--primary-dark);
+                font-weight: 600;
+                text-align: right;
+                margin-top: 6px;
+            }
+
+            .payment-option {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 12px;
+                border-radius: 8px;
+                border: 1.5px solid var(--border);
+                margin-bottom: 8px;
+                cursor: pointer;
+            }
+
+            .payment-option.active {
+                border-color: var(--primary-dark);
+                background: var(--secondary);
+            }
+
+            .payment-radio {
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                border: 2px solid var(--border);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+
+            .payment-radio.active {
+                border-color: var(--primary-dark);
+                background: var(--primary-dark);
+            }
+
+            .payment-radio.active::after {
+                content: '';
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: white;
+            }
+
+            .payment-label {
+                font-size: 13px;
+                font-weight: 600;
+            }
+
+            .payment-icon {
+                font-size: 20px;
+            }
+
+            .order-confirm-btn {
+                display: block;
+                width: calc(100% - 40px);
+                margin: 16px 20px 20px;
+                padding: 16px;
+                background: var(--primary);
+                border: none;
+                border-radius: 8px;
+                font-size: 15px;
+                font-weight: 700;
+                cursor: pointer;
+                text-align: center;
+            }
+
+            .secure-note {
+                text-align: center;
+                font-size: 11px;
+                color: var(--text-light);
+                margin-bottom: 20px;
+            }
+        </style>
+        <div
+            style="padding:14px 20px 0; font-size:17px; font-weight:800; background:var(--white); border-bottom:1px solid var(--border); padding-bottom:14px;">
+            購入手続き</div>
+        <div class="checkout-section">
+            <div class="checkout-section-title">📦 配送先住所</div>
+            <div class="address-card">
+                〒150-0001<br>
+                東京都渋谷区神宮前1-1-1<br>
+                田中 さくら 様
+            </div>
+            <div class="address-change">変更する ›</div>
+        </div>
+        <div class="checkout-section">
+            <div class="checkout-section-title">💳 お支払い方法</div>
+            <div class="payment-option active">
+                <div class="payment-radio active"></div>
+                <span class="payment-icon">💳</span>
+                <span class="payment-label">クレジットカード</span>
+            </div>
+            <div class="payment-option">
+                <div class="payment-radio"></div>
+                <span class="payment-icon">📱</span>
+                <span class="payment-label">PayPay</span>
+            </div>
+        </div>
+        <div class="checkout-section">
+            <div class="checkout-section-title">🧾 注文内容</div>
+            <div class="summary-row"
+                style="display:flex;justify-content:space-between;padding:4px 0;font-size:13px;color:var(--text-mid)">
+                <span>リネンブレンド フレアワンピース × 1</span><span>¥12,800</span></div>
+            <div class="summary-row"
+                style="display:flex;justify-content:space-between;padding:4px 0;font-size:13px;color:var(--text-mid)">
+                <span>オーバーサイズ コットンTシャツ × 2</span><span>¥8,400</span></div>
+            <div
+                style="border-top:1px solid var(--border);margin-top:8px;padding-top:10px;display:flex;justify-content:space-between;font-size:16px;font-weight:800;">
+                <span>合計（税込）</span><span>¥21,750</span>
+            </div>
+        </div>
+        <button class="order-confirm-btn">注文を確定する 🎉</button>
+        <div class="secure-note">🔒 SSL暗号化通信で安全に処理されます</div>
+    </div>
+
+    <!-- ===== 注文完了ページ ===== -->
+    <div id="page-complete" class="page">
+        <style>
+            .complete-hero {
+                background: linear-gradient(135deg, var(--primary), var(--primary-light));
+                padding: 40px 20px;
+                text-align: center;
+            }
+
+            .complete-icon {
+                font-size: 60px;
+                margin-bottom: 12px;
+            }
+
+            .complete-title {
+                font-size: 22px;
+                font-weight: 900;
+                margin-bottom: 6px;
+            }
+
+            .complete-sub {
+                font-size: 13px;
+                color: var(--text-mid);
+            }
+
+            .order-card {
+                background: var(--white);
+                margin: 16px 20px;
+                border-radius: 10px;
+                padding: 16px;
+                border: 1px solid var(--border);
+            }
+
+            .order-num {
+                font-size: 12px;
+                color: var(--text-light);
+            }
+
+            .order-num span {
+                font-size: 16px;
+                font-weight: 700;
+                color: var(--text-dark);
+            }
+
+            .status-timeline {
+                padding: 16px 0;
+            }
+
+            .status-step {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 8px 0;
+            }
+
+            .status-dot {
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 10px;
+                flex-shrink: 0;
+            }
+
+            .status-dot.done {
+                background: var(--primary);
+            }
+
+            .status-dot.pending {
+                background: var(--border);
+            }
+
+            .status-label {
+                font-size: 13px;
+            }
+
+            .status-label.done {
+                font-weight: 600;
+            }
+
+            .status-label.pending {
+                color: var(--text-light);
+            }
+
+            .status-line {
+                width: 2px;
+                height: 20px;
+                background: var(--border);
+                margin-left: 9px;
+            }
+
+            .continue-btn {
+                display: block;
+                width: calc(100% - 40px);
+                margin: 0 20px 20px;
+                padding: 14px;
+                background: var(--text-dark);
+                border: none;
+                border-radius: 8px;
+                font-size: 14px;
+                font-weight: 700;
+                cursor: pointer;
+                text-align: center;
+                color: var(--primary);
+            }
+        </style>
+        <div class="complete-hero">
+            <div class="complete-icon">🎉</div>
+            <div class="complete-title">ご注文ありがとうございます！</div>
+            <div class="complete-sub">確認メールをお送りしました</div>
+        </div>
+        <div class="order-card">
+            <div class="order-num">注文番号: <span>#VRD-2026-00842</span></div>
+            <div style="font-size:12px;color:var(--text-light);margin-top:4px;">2026年5月18日 11:35</div>
+            <div class="divider" style="height:1px;background:var(--border);margin:12px 0;"></div>
+            <div class="checkout-section-title" style="font-size:13px;font-weight:700;margin-bottom:12px;">📦 配送状況</div>
+            <div class="status-timeline">
+                <div class="status-step">
+                    <div class="status-dot done">✓</div>
+                    <span class="status-label done">注文受付</span>
+                </div>
+                <div class="status-line"></div>
+                <div class="status-step">
+                    <div class="status-dot pending"></div>
+                    <span class="status-label pending">発送準備中</span>
+                </div>
+                <div class="status-line"></div>
+                <div class="status-step">
+                    <div class="status-dot pending"></div>
+                    <span class="status-label pending">発送済み</span>
+                </div>
+                <div class="status-line"></div>
+                <div class="status-step">
+                    <div class="status-dot pending"></div>
+                    <span class="status-label pending">配達完了</span>
+                </div>
+            </div>
+        </div>
+        <button class="continue-btn">ショッピングを続ける →</button>
+    </div>
+
+    <!-- ===== ログインページ ===== -->
+    <div id="page-login" class="page">
+        <style>
+            .login-wrap {
+                padding: 40px 20px;
+            }
+
+            .login-logo {
+                text-align: center;
+                font-size: 28px;
+                font-weight: 900;
+                letter-spacing: 4px;
+                margin-bottom: 6px;
+            }
+
+            .login-logo span {
+                color: var(--primary-dark);
+            }
+
+            .login-sub {
+                text-align: center;
+                font-size: 13px;
+                color: var(--text-light);
+                margin-bottom: 32px;
+            }
+
+            .social-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                width: 100%;
+                padding: 14px;
+                border-radius: 8px;
+                border: 1.5px solid var(--border);
+                background: var(--white);
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                margin-bottom: 12px;
+            }
+
+            .social-btn.google {
+                border-color: #4285F4;
+                color: #4285F4;
+            }
+
+            .social-btn.line {
+                background: #06C755;
+                border-color: #06C755;
+                color: white;
+            }
+
+            .login-divider {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin: 20px 0;
+            }
+
+            .login-divider::before,
+            .login-divider::after {
+                content: '';
+                flex: 1;
+                height: 1px;
+                background: var(--border);
+            }
+
+            .login-divider span {
+                font-size: 12px;
+                color: var(--text-light);
+            }
+
+            .login-note {
+                text-align: center;
+                font-size: 11px;
+                color: var(--text-light);
+                line-height: 1.7;
+                margin-top: 24px;
+            }
+
+            .login-note a {
+                color: var(--primary-dark);
+            }
+        </style>
+        <div class="login-wrap">
+            <div class="login-logo">VER<span>DE</span></div>
+            <div class="login-sub">アカウントにログイン</div>
+            <button class="social-btn google">
+                <span style="font-size:20px;">G</span>
+                Googleでログイン
+            </button>
+            <button class="social-btn line">
+                <span style="font-size:20px;">💬</span>
+                LINEでログイン
+            </button>
+            <div class="login-divider"><span>または</span></div>
+            <div
+                style="background:var(--secondary);border-radius:10px;padding:16px;border:1px solid var(--border);text-align:center;">
+                <div style="font-size:13px;color:var(--text-mid);line-height:1.7;">
+                    初めてご利用の方も<br>ソーシャルログインで<br>かんたんに登録できます
+                </div>
+            </div>
+            <div class="login-note">
+                ログインすることで<a href="#">利用規約</a>および<br>
+                <a href="#">プライバシーポリシー</a>に同意したものとみなします
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== マイページ ===== -->
+    <div id="page-mypage" class="page">
+        <style>
+            .mypage-header {
+                background: linear-gradient(135deg, var(--primary), var(--secondary));
+                padding: 24px 20px;
+                display: flex;
+                align-items: center;
+                gap: 14px;
+            }
+
+            .avatar {
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                background: var(--white);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 28px;
+                border: 3px solid var(--primary-dark);
+            }
+
+            .mypage-name {
+                font-size: 17px;
+                font-weight: 800;
+            }
+
+            .mypage-email {
+                font-size: 12px;
+                color: var(--text-mid);
+            }
+
+            .menu-section {
+                background: var(--white);
+                margin: 12px 20px;
+                border-radius: 10px;
+                overflow: hidden;
+                border: 1px solid var(--border);
+            }
+
+            .menu-item {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 14px 16px;
+                border-bottom: 1px solid var(--border);
+                cursor: pointer;
+            }
+
+            .menu-item:last-child {
+                border-bottom: none;
+            }
+
+            .menu-item-left {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .menu-item-icon {
+                font-size: 18px;
+                width: 28px;
+                text-align: center;
+            }
+
+            .menu-item-label {
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            .menu-item-arrow {
+                color: var(--text-light);
+                font-size: 16px;
+            }
+
+            .order-history-item {
+                background: var(--white);
+                margin: 0 20px 10px;
+                border-radius: 10px;
+                padding: 14px;
+                border: 1px solid var(--border);
+            }
+
+            .order-history-header {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 8px;
+            }
+
+            .order-history-num {
+                font-size: 12px;
+                color: var(--text-light);
+            }
+
+            .order-status {
+                font-size: 11px;
+                font-weight: 700;
+                padding: 3px 8px;
+                border-radius: 10px;
+            }
+
+            .order-status.shipped {
+                background: var(--secondary);
+                color: var(--primary-dark);
+            }
+
+            .order-status.delivered {
+                background: #e8f5e9;
+                color: #2e7d32;
+            }
+
+            .order-history-items {
+                font-size: 13px;
+                color: var(--text-mid);
+            }
+
+            .order-history-total {
+                font-size: 14px;
+                font-weight: 700;
+                margin-top: 6px;
+            }
+        </style>
+        <div class="mypage-header">
+            <div class="avatar">👩</div>
+            <div>
+                <div class="mypage-name">田中 さくら</div>
+                <div class="mypage-email">sakura@example.com</div>
+            </div>
+        </div>
+        <div class="menu-section">
+            <div class="menu-item">
+                <div class="menu-item-left">
+                    <span class="menu-item-icon">📦</span>
+                    <span class="menu-item-label">注文履歴</span>
+                </div>
+                <span class="menu-item-arrow">›</span>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-left">
+                    <span class="menu-item-icon">📍</span>
+                    <span class="menu-item-label">配送先住所</span>
+                </div>
+                <span class="menu-item-arrow">›</span>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-left">
+                    <span class="menu-item-icon">👤</span>
+                    <span class="menu-item-label">プロフィール設定</span>
+                </div>
+                <span class="menu-item-arrow">›</span>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-left">
+                    <span class="menu-item-icon">🔔</span>
+                    <span class="menu-item-label">通知設定</span>
+                </div>
+                <span class="menu-item-arrow">›</span>
+            </div>
+        </div>
+        <div style="padding:0 20px 8px;font-size:13px;font-weight:700;">最近の注文</div>
+        <div class="order-history-item">
+            <div class="order-history-header">
+                <span class="order-history-num">#VRD-2026-00842 · 2026/05/18</span>
+                <span class="order-status shipped">発送準備中</span>
+            </div>
+            <div class="order-history-items">リネンブレンド フレアワンピース 他1点</div>
+            <div class="order-history-total">¥21,750</div>
+        </div>
+        <div class="order-history-item">
+            <div class="order-history-header">
+                <span class="order-history-num">#VRD-2026-00731 · 2026/04/30</span>
+                <span class="order-status delivered">配達完了</span>
+            </div>
+            <div class="order-history-items">ハイウエスト テーパードパンツ</div>
+            <div class="order-history-total">¥9,500</div>
+        </div>
+    </div>
+
+    <!-- ===== JavaScript ===== -->
+    <script>
+        function showPage(pageId, btn) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('page-' + pageId).classList.add('active');
+            btn.classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+
+</html>

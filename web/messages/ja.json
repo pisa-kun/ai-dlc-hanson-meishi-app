@@ -1,0 +1,33 @@
+{
+  "controls": {
+    "themePalette": {
+      "label": "カラーテーマ",
+      "selectTheme": "テーマを選択: {name}"
+    },
+    "languageSwitcher": {
+      "label": "言語",
+      "switchTo": "言語を切り替え: {label}"
+    }
+  },
+  "hero": {
+    "galleryAria": "プロフィール写真ギャラリー",
+    "thumbnailLabel": "サブ画像 {index} を表示"
+  },
+  "sections": {
+    "skills": "スキル",
+    "career": "経歴",
+    "achievements": "実績",
+    "portfolio": "ポートフォリオ",
+    "blog": "ブログ・記事",
+    "sns": "SNS"
+  },
+  "card": {
+    "scrollHint": "下にスクロールして詳細を見る"
+  },
+  "footer": {
+    "builtWith": "Built with Next.js"
+  },
+  "errors": {
+    "imageFailed": "画像の読み込みに失敗しました"
+  }
+}

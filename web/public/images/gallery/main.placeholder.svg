@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Main image placeholder">
+  <rect width="800" height="600" fill="#2a2a2a"/>
+  <text x="400" y="300" text-anchor="middle" font-family="sans-serif" font-size="32" fill="#aaa" font-weight="600">MAIN</text>
+  <text x="400" y="340" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#777">800 × 600</text>
+</svg>

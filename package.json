@@ -1,0 +1,25 @@
+{
+  "name": "meishi-app",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Self-introduction page (meishi app) — Next.js SSG + AWS CDK",
+  "workspaces": [
+    "web",
+    "infra"
+  ],
+  "scripts": {
+    "build:web": "npm -w web run build",
+    "build:infra": "npm -w infra run build",
+    "synth": "npm run build:web && npm -w infra run synth",
+    "deploy": "npm run build:web && npm -w infra run deploy",
+    "destroy": "npm -w infra run destroy",
+    "bootstrap": "npm -w infra run bootstrap",
+    "dev": "npm -w web run dev",
+    "test": "npm -w web run test",
+    "lint": "npm -w web run lint"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  }
+}

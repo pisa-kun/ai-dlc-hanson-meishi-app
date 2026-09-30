@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ────────────────────────────────────────────────
+   テーマ別 CSS Variables
+   ──────────────────────────────────────────────── */
+
+:root,
+[data-theme='lime'] {
+  --color-primary: #7cfc00;
+  --color-background: #0e1a0e;
+  --color-surface: #162616;
+  --color-text: #eaffea;
+  --color-text-muted: #a8c8a8;
+  --color-border: #2a3a2a;
+  --color-on-primary: #0e1a0e;
+  color-scheme: dark;
+}
+
+[data-theme='mono'] {
+  --color-primary: #000000;
+  --color-background: #ffffff;
+  --color-surface: #f5f5f5;
+  --color-text: #111111;
+  --color-text-muted: #555555;
+  --color-border: #e5e5e5;
+  --color-on-primary: #ffffff;
+  color-scheme: light;
+}
+
+[data-theme='rose'] {
+  --color-primary: #b33e5c;
+  --color-background: #fff7f8;
+  --color-surface: #fbe9ee;
+  --color-text: #1f1216;
+  --color-text-muted: #5a3946;
+  --color-border: #e8c8d0;
+  --color-on-primary: #ffffff;
+  color-scheme: light;
+}
+
+[data-theme='sky'] {
+  --color-primary: #89c3eb;
+  --color-background: #0f1b23;
+  --color-surface: #16242e;
+  --color-text: #e6f3fb;
+  --color-text-muted: #a0bfd3;
+  --color-border: #243646;
+  --color-on-primary: #0f1b23;
+  color-scheme: dark;
+}
+
+/* ────────────────────────────────────────────────
+   Base
+   ──────────────────────────────────────────────── */
+html {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  font-family:
+    'Inter', 'Hiragino Sans', 'Noto Sans JP', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+}
+
+/* テーマ切替時のトランジション */
+*,
+*::before,
+*::after {
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease,
+    fill 250ms ease,
+    stroke 250ms ease,
+    box-shadow 250ms ease;
+}
+
+/* prefers-reduced-motion: アニメーション全般を無効化 */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* フォーカスリング: キーボード操作時のみ */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* セレクション */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+/* ────────────────────────────────────────────────
+   レスポンシブの両立レイアウト用ユーティリティ
+   - Web版（≧768px）と 名刺版（<768px）の出し分け
+   ──────────────────────────────────────────────── */
+.layout-web {
+  display: none;
+}
+
+.layout-card {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .layout-web {
+    display: block;
+  }
+
+  .layout-card {
+    display: none;
+  }
+}
+
+
+/* ────────────────────────────────────────────────
+   Skill カテゴリ別カラー（テーマ非依存）
+   - language / framework / cloud / design / tool / other
+   - 半透明背景 + 同系の枠線 + 中間色テキストで全テーマで可読性確保
+   ──────────────────────────────────────────────── */
+.skill-tag {
+  border-style: solid;
+  border-width: 1px;
+}
+
+.skill-tag-language {
+  background-color: rgba(59, 130, 246, 0.18);
+  border-color: rgba(59, 130, 246, 0.45);
+  color: #2563eb;
+}
+
+[data-theme='lime'] .skill-tag-language,
+[data-theme='sky'] .skill-tag-language {
+  color: #93c5fd;
+}
+
+.skill-tag-framework {
+  background-color: rgba(168, 85, 247, 0.18);
+  border-color: rgba(168, 85, 247, 0.45);
+  color: #9333ea;
+}
+
+[data-theme='lime'] .skill-tag-framework,
+[data-theme='sky'] .skill-tag-framework {
+  color: #d8b4fe;
+}
+
+.skill-tag-cloud {
+  background-color: rgba(249, 115, 22, 0.18);
+  border-color: rgba(249, 115, 22, 0.45);
+  color: #ea580c;
+}
+
+[data-theme='lime'] .skill-tag-cloud,
+[data-theme='sky'] .skill-tag-cloud {
+  color: #fdba74;
+}
+
+.skill-tag-design {
+  background-color: rgba(236, 72, 153, 0.18);
+  border-color: rgba(236, 72, 153, 0.45);
+  color: #db2777;
+}
+
+[data-theme='lime'] .skill-tag-design,
+[data-theme='sky'] .skill-tag-design {
+  color: #f9a8d4;
+}
+
+.skill-tag-tool {
+  background-color: rgba(100, 116, 139, 0.22);
+  border-color: rgba(100, 116, 139, 0.45);
+  color: #475569;
+}
+
+[data-theme='lime'] .skill-tag-tool,
+[data-theme='sky'] .skill-tag-tool {
+  color: #cbd5e1;
+}
+
+.skill-tag-other {
+  background-color: rgba(107, 114, 128, 0.15);
+  border-color: rgba(107, 114, 128, 0.4);
+  color: #4b5563;
+}
+
+[data-theme='lime'] .skill-tag-other,
+[data-theme='sky'] .skill-tag-other {
+  color: #9ca3af;
+}

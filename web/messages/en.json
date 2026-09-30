@@ -1,0 +1,33 @@
+{
+  "controls": {
+    "themePalette": {
+      "label": "Color Theme",
+      "selectTheme": "Select theme: {name}"
+    },
+    "languageSwitcher": {
+      "label": "Language",
+      "switchTo": "Switch language: {label}"
+    }
+  },
+  "hero": {
+    "galleryAria": "Profile photo gallery",
+    "thumbnailLabel": "Show sub image {index}"
+  },
+  "sections": {
+    "skills": "Skills",
+    "career": "Career",
+    "achievements": "Achievements",
+    "portfolio": "Portfolio",
+    "blog": "Blog & Articles",
+    "sns": "SNS"
+  },
+  "card": {
+    "scrollHint": "Scroll down for more"
+  },
+  "footer": {
+    "builtWith": "Built with Next.js"
+  },
+  "errors": {
+    "imageFailed": "Failed to load image"
+  }
+}

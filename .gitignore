@@ -1,0 +1,29 @@
+# 別プロジェクト（ECサイト）の残骸 — このリポジトリには含めない
+verde-ec/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+dist/
+build/
+
+# CDK
+cdk.out/
+cdk.context.json
+
+# 環境変数
+.env
+.env.local
+.env.*.local
+
+# OS / エディタ
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
+*.swp
+
+# テストカバレッジ
+coverage/
